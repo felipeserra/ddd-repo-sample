@@ -10,6 +10,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        image:
+            reposample
         ports:
             - "9023:9023"
         links:
