@@ -2,6 +2,8 @@ version: "3"
 services:
     mongodb:
         image: mongo
+        expose:
+            - "27017"
         volumes:
             - /home/daxnet/mongodb/data:/data/db:Z
         container_name: mongodb
@@ -16,4 +18,5 @@ services:
             - "9023:9023"
         links:
             - mongodb
-
+        environment:
+            - mongo:host=mongodb
