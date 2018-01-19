@@ -53,19 +53,19 @@ namespace RepositorySample.Service
             });
 
             #region MongoDB 仓储实现
-            //var mongoHost = Configuration["mongo:host"];
-            //var mongoPort = Convert.ToInt32(Configuration["mongo:port"]);
-            //var mongoDatabase = Configuration["mongo:database"];
+            var mongoHost = Configuration["mongo:host"];
+            var mongoPort = Convert.ToInt32(Configuration["mongo:port"]);
+            var mongoDatabase = Configuration["mongo:database"];
 
-            //var mongoRepositorySettings = new MongoRepositorySettings(mongoHost, mongoPort, mongoDatabase);
+            var mongoRepositorySettings = new MongoRepositorySettings(mongoHost, mongoPort, mongoDatabase);
 
-            //services.AddSingleton(mongoRepositorySettings);
-            //services.AddTransient<IRepositoryContext, MongoRepositoryContext>();
+            services.AddSingleton(mongoRepositorySettings);
+            services.AddTransient<IRepositoryContext, MongoRepositoryContext>();
 
             #endregion
 
             #region 内存数据库 仓储实现
-            services.AddTransient<IRepositoryContext, InMemoryRepositoryContext>();
+            // services.AddTransient<IRepositoryContext, InMemoryRepositoryContext>();
             #endregion
         }
 
