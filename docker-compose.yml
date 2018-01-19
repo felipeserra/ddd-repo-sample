@@ -1,0 +1,17 @@
+version: "3"
+services:
+    mongodb:
+        image: mongo
+        volumes:
+            - /home/daxnet/mongodb/data:/data/db:Z
+        container_name: mongodb
+
+    reposample:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "9023:9023"
+        links:
+            - mongodb
+
