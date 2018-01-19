@@ -23,7 +23,7 @@ namespace RepositorySample.Framework
 
         public object Session => session;
 
-        public virtual Task CommitAsync(CancellationToken cancellationToken = default) => Task.CompletedTask;
+        public virtual Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken)) => Task.CompletedTask;
 
         public IRepository<TAggregateRoot> GetRepository<TAggregateRoot>()
             where TAggregateRoot : class, IAggregateRoot

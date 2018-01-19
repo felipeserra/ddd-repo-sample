@@ -38,6 +38,6 @@ namespace RepositorySample.Framework
         /// </summary>
         /// <param name="cancellationToken"><see cref="CancellationToken"/>实例，用于接收操作取消的信息，以便取消操作。</param>
         /// <returns>执行提交操作的<see cref="Task"/>实例。</returns>
-        Task CommitAsync(CancellationToken cancellationToken = default);
+        Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

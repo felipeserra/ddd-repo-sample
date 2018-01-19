@@ -12,14 +12,14 @@ namespace RepositorySample.Framework
     {
         IRepositoryContext Context { get; }
 
-        Task AddAsync(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default);
+        Task AddAsync(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task RemoveByKeyAsync(Guid key, CancellationToken cancellationToken = default);
+        Task RemoveByKeyAsync(Guid key, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task UpdateByKeyAsync(Guid key, TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default);
+        Task UpdateByKeyAsync(Guid key, TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<TAggregateRoot> FindByKeyAsync(Guid key, CancellationToken cancellationToken = default);
+        Task<TAggregateRoot> FindByKeyAsync(Guid key, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IEnumerable<TAggregateRoot>> FindBySpecificationAsync(Expression<Func<TAggregateRoot, bool>> specification, CancellationToken cancellationToken = default);
+        Task<IEnumerable<TAggregateRoot>> FindBySpecificationAsync(Expression<Func<TAggregateRoot, bool>> specification, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

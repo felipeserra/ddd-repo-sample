@@ -7,7 +7,7 @@ namespace RepositorySample.Repositories.InMemory
 {
     public sealed class InMemoryRepositoryContext : RepositoryContextBase<ConcurrentDictionary<Type, Dictionary<Guid, object>>>
     {
-        private static readonly ConcurrentDictionary<Type, Dictionary<Guid, object>> storage = new ConcurrentDictionary<Type, Dictionary<Guid, object>>();
+        internal static readonly ConcurrentDictionary<Type, Dictionary<Guid, object>> storage = new ConcurrentDictionary<Type, Dictionary<Guid, object>>();
 
         public InMemoryRepositoryContext()
             : base(storage)
@@ -17,7 +17,8 @@ namespace RepositorySample.Repositories.InMemory
 
         protected override IRepository<TAggregateRoot> CreateRepository<TAggregateRoot>()
         {
-            throw new NotImplementedException();
+            return new InMemoryRepository<TAggregateRoot>(this);
         }
+
     }
 }
